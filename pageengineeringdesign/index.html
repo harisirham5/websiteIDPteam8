@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>readlens - Engineering Design</title>
+  <meta name="description" content="Engineering design, architecture, and timeline of the readlens driver monitoring system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  
+  <div id="canvas-container"></div>
+
+  <nav>
+    <a href="../index.html" class="logo">readlens</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../pageourteam/index.html">Our Team</a>
+      <a href="../pageproblemidentification/index.html">Problem Identification</a>
+      <a href="index.html" class="active">Engineering Design</a>
+      <a href="../pagedesignrequirement/index.html">Design Requirements</a>
+    </div>
+  </nav>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">Engineering Design</h1>
+      <p style="color: var(--text-muted); font-size: 1.2rem;">System Architecture and Processes</p>
+    </div>
+
+    <section class="content-section">
+      <h2>Bill of Process</h2>
+      <p>The manufacturing and assembly process is optimized for cost-efficiency while maintaining high reliability for the readlens smart glasses hardware.</p>
+      <div class="img-container">
+        <img src="biilingofprocess.png" alt="Bill of Process" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>System Flowchart</h2>
+      <p>The logical flow of the system, from continuous environmental scanning via the camera module to data processing and alert activation. The system uses a microcontroller to analyze obstacle distances in real-time and capture images for AI text-recognition.</p>
+      <div class="img-container">
+        <img src="flowchartnew.png" alt="System Flowchart" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Project Timeline</h2>
+      <p>Strategic milestones tracking the research, prototyping, and deployment phases of the readlens system.</p>
+      <div class="img-container">
+        <img src="projecttimeline.png" alt="Project Timeline" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Design Sketch</h2>
+      <p>The wearable form factor is optimized for an unobtrusive, lightweight presence. It is designed to be comfortably worn by blind and myopic users for extended periods without causing physical strain, seamlessly integrating the camera and sensors.</p>
+      <div class="img-container">
+        <img src="../pagedesignrequirement/designsketch.png" alt="Design Sketch" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Circuit Diagram</h2>
+      <p>The hardware architecture leverages a robust ESP32-S3 microcontroller capable of local processing and Bluetooth communication, interconnected with the OV5640 camera sensor, distance sensors, and the PAM8403 audio amplifier module.</p>
+      <div class="img-container">
+        <img src="../pagedesignrequirement/circuit diagram1.png" alt="Circuit Diagram" onerror="this.style.display='none'">
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 readlens Project. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../three-header.js"></script>
+</body>
+</html>

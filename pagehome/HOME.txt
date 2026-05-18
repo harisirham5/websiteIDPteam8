@@ -1,0 +1,4 @@
+HOME
+
+
+Malaysia faces a growing accessibility challenge: over 300,000 citizens live with severe visual impairment, and myopia affects nearly one third of the population. OPTINAV directly addresses this gap by providing an affordable, AI powered smart glasses system for blind and myopic users, combining real time obstacle detection, text recognition, and audio feedback. 

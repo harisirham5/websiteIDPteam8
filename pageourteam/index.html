@@ -1,0 +1,99 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>readlens - Our Team</title>
+  <meta name="description" content="Meet the team behind the readlens smart glasses project.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  
+  <div id="canvas-container"></div>
+
+  <nav>
+    <a href="../index.html" class="logo">readlens</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="index.html" class="active">Our Team</a>
+      <a href="../pageproblemidentification/index.html">Problem Identification</a>
+      <a href="../pageengineeringdesign/index.html">Engineering Design</a>
+      <a href="../pagedesignrequirement/index.html">Design Requirements</a>
+    </div>
+  </nav>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">Meet the Team</h1>
+      <p style="color: var(--text-muted); font-size: 1.2rem;">The innovators behind readlens.</p>
+    </div>
+
+    <div class="team-grid">
+      
+      <!-- Hariz -->
+      <div class="team-card">
+        <div class="team-avatar">
+          <img src="Hariz.jpeg" alt="Hariz" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <h3 class="team-name">Hariz</h3>
+        <p class="team-role">Project Lead & System Integrator</p>
+        <p class="team-desc">Oversees the entire development process, ensuring all hardware and software components work seamlessly together. Responsible for project planning, documentation, and aligning the design with user needs and accessibility goals.</p>
+      </div>
+
+      <!-- Irham -->
+      <div class="team-card">
+        <div class="team-avatar">
+          <img src="Irham.jpeg" alt="Irham" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <h3 class="team-name">Irham</h3>
+        <p class="team-role">AI & Software Developer</p>
+        <p class="team-desc">Designs and implements the readlens smartphone app and AI chatbot. Handles image processing for OCR and object detection, Bluetooth communication with the ESP32-S3, and ensures smooth user interaction through the app interface.</p>
+      </div>
+
+      <!-- Adam -->
+      <div class="team-card">
+        <div class="team-avatar">
+          <img src="Adam.jpeg" alt="Adam" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <h3 class="team-name">Adam</h3>
+        <p class="team-role">Hardware & Circuit Designer</p>
+        <p class="team-desc">Develops the electronic architecture of the smart glasses, including the ESP32-S3 microcontroller, OV5640 camera, distance sensor, TP4056 charging module, AMS1117-3.3V regulator, and Li-Po battery integration. Focuses on power efficiency and compact design.</p>
+      </div>
+
+      <!-- Amir -->
+      <div class="team-card">
+        <div class="team-avatar">
+          <img src="Amir.jpeg" alt="Amir" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <h3 class="team-name">Amir</h3>
+        <p class="team-role">Audio & User Experience Engineer</p>
+        <p class="team-desc">Optimizes the audio feedback system using micro earphone speaker drivers. Ensures clear, low-latency sound output and comfortable wearability for blind and myopic users. Works closely with the design team to refine ergonomics and usability.</p>
+      </div>
+
+      <!-- Haziq -->
+      <div class="team-card" style="grid-column: 1 / -1; max-width: 50%; margin: 0 auto;">
+        <div class="team-avatar">
+          <img src="Haziq.jpeg" alt="Haziq" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+        </div>
+        <h3 class="team-name">Haziq</h3>
+        <p class="team-role">Testing & Validation Specialist</p>
+        <p class="team-desc">Conducts functional, performance, and user-based testing to validate OCR accuracy, obstacle detection reliability, and overall system responsiveness. Collects feedback from visually impaired users and refines the design for real-world application.</p>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 readlens Project. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../three-header.js"></script>
+</body>
+</html>

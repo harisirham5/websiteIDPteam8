@@ -1,0 +1,96 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>readlens - Design Requirements</title>
+  <meta name="description" content="Hardware components, functional requirements, and core assistive features for readlens smart glasses.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  
+  <div id="canvas-container"></div>
+
+  <nav>
+    <a href="../index.html" class="logo">readlens</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../pageourteam/index.html">Our Team</a>
+      <a href="../pageproblemidentification/index.html">Problem Identification</a>
+      <a href="../pageengineeringdesign/index.html">Engineering Design</a>
+      <a href="index.html" class="active">Design Requirements</a>
+    </div>
+  </nav>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">Design Requirements</h1>
+      <p style="color: var(--text-muted); font-size: 1.2rem;">Required Design Features and Basic Functionalities</p>
+    </div>
+
+    <section class="content-section">
+      <p>Based on validated user needs from interviews and accessibility research, readlens integrates the following core design features and functionalities to effectively assist blind and myopic users in navigation and reading tasks across Malaysian environments:</p>
+      
+      <div style="overflow-x: auto; margin-top: 2rem;">
+        <table style="width: 100%; text-align: left; border-collapse: collapse; min-width: 800px;">
+          <tr style="border-bottom: 2px solid var(--primary-color);">
+            <th style="padding: 1rem; color: var(--primary-color);">Core Assistive Feature</th>
+            <th style="padding: 1rem; color: var(--primary-color);">Functionality</th>
+            <th style="padding: 1rem; color: var(--primary-color);">User Need Addressed</th>
+            <th style="padding: 1rem; color: var(--primary-color);">Justification</th>
+          </tr>
+          
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <td style="padding: 1rem; font-weight: bold;">1. Dual Mode AI Vision System</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Real-time image capture via OV5640 camera, processed through readlens App for either OCR (text recognition) or object identification.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Users need to read printed text and recognize surrounding objects independently.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Enables blind and myopic users to access visual information without external assistance; supports autonomy and confidence.</td>
+          </tr>
+          
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <td style="padding: 1rem; font-weight: bold;">2. Real Time Obstacle Detection and Audio Feedback</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Distance sensor and camera detect obstacles; ESP32 S3 sends alerts through PAM8403 amplifier and earphone drivers.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Users require immediate awareness of nearby obstacles to avoid collisions.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Provides safety and spatial awareness; critical for blind navigation in crowded or unfamiliar areas.</td>
+          </tr>
+          
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <td style="padding: 1rem; font-weight: bold;">3. AI Chatbot Interaction</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Integrated AI assistant in readlens App allows users to ask follow-up questions about captured scenes.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Users want contextual understanding beyond basic detection (e.g., “What’s written on the sign?” or “What object is ahead?”)</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Enhances engagement and comprehension; bridges gap between assistive hardware and intelligent interpretation.</td>
+          </tr>
+          
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+            <td style="padding: 1rem; font-weight: bold;">4. Lightweight, Modular Design</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Compact assembly (≤ 150 g) with detachable modules for battery, camera, and amplifier.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Users need comfortable, wearable design suitable for long-term use.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Ensures ergonomic fit and easy maintenance; supports local assembly and repair.</td>
+          </tr>
+          
+          <tr>
+            <td style="padding: 1rem; font-weight: bold;">5. Affordable and Locally Sourced Components</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Uses ESP32 S3, OV5640, PAM8403, and Li-Po battery (1000–1500 mAh) available in Malaysia.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Users require cost-effective assistive technology.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Reduces dependency on imported devices (e.g., OrCam, Envision); promotes accessibility and local innovation.</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 readlens Project. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../three-header.js"></script>
+</body>
+</html>

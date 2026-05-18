@@ -1,0 +1,10 @@
+PROJECT GOAL
+
+✔ Project Goal
+OPTINAV is an affordable, wearable AI smart glasses system designed to assist blind and myopic patients in daily navigation and reading tasks. It integrates a camera, distance sensor, and AI powered smartphone app to perform object identification, obstacle detection, and text recognition, providing real time audio feedback through embedded speakers.
+Solution Strategy:
+•	📷 Utilize ESP32 S3 + OV5640 camera for real time image capture and distance sensing.
+•	🔊 Implement audio feedback system using PAM8403 amplifier and micro earphone drivers for clear speech output.
+•	🤖 Develop OPTINAV App (AI powered) to process captured images for OCR or object detection and allow users to query the AI chatbot for contextual understanding.
+•	⚙️ Ensure plug and play modular design for easy assembly, maintenance, and local component sourcing in Malaysia.
+•	🧭 Provide real time obstacle alerts to enhance mobility safety for visually impaired users.

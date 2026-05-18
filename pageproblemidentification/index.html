@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>readlens - Problem Identification</title>
+  <meta name="description" content="Identifying the microsleep crisis on Malaysian roads and readlens's solution.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+  
+  <div id="canvas-container"></div>
+
+  <nav>
+    <a href="../index.html" class="logo">readlens</a>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="nav-links">
+      <a href="../index.html">Home</a>
+      <a href="../pageourteam/index.html">Our Team</a>
+      <a href="index.html" class="active">Problem Identification</a>
+      <a href="../pageengineeringdesign/index.html">Engineering Design</a>
+      <a href="../pagedesignrequirement/index.html">Design Requirements</a>
+    </div>
+  </nav>
+
+  <main class="page-container">
+    <div class="page-header">
+      <h1 class="page-title">Problem Identification</h1>
+      <p style="color: var(--text-muted); font-size: 1.2rem;">Understanding the Accessibility and Vision Impairment Challenge in Malaysia</p>
+    </div>
+
+    <section class="content-section" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px;">
+        <h2>The Accessibility and Vision Impairment Challenge</h2>
+        <p>Visual impairment and myopia are major public health concerns in Malaysia. According to the National Eye Surveys (2024), the prevalence of blindness among adults aged ≥ 50 years is 0.6–1.6 %, with untreated cataracts and diabetic retinopathy as leading causes. The IAPB Vision Atlas reports that sight loss continues to rise due to population ageing and limited access to affordable eye care services.</p>
+        <p>Meanwhile, a systematic review by the Ministry of Health and IMU University (2026) found that up to 42.7 % of Malaysian adolescents experience myopia, with higher rates among females and Chinese Malaysians.</p>
+        <p>These conditions severely restrict independence, mobility, and information access. Existing assistive technologies—such as imported smart glasses and handheld readers—are cost prohibitive (RM 10,000–RM 15,000) and not locally serviceable, leaving many visually impaired Malaysians without practical support.</p>
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <img src="blindpeoplewalking.jpg" alt="Accessibility Challenge" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      </div>
+    </section>
+
+    <section class="content-section" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap; flex-direction: row-reverse;">
+      <div style="flex: 1; min-width: 300px;">
+        <h2>Target Users & Industry Focus</h2>
+        <p><strong>Primary Users:</strong> Blind and severely visually impaired individuals needing real-time obstacle detection and text-to-speech assistance.</p>
+        <p><strong>Secondary Users:</strong> Myopic and low vision users requiring magnified or audio-based feedback for reading and navigation.</p>
+        <p><strong>Industry Focus:</strong> readlens operates within the assistive technology and healthcare innovation sector, addressing the lack of affordable, AI-powered wearable solutions for Malaysia's visually impaired community. By integrating ESP32 S3 + OV5640 camera, distance sensors, and PAM8403 driven audio output, readlens enables users to:</p>
+        <ul>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Detect obstacles and objects in real time.</li>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Read printed text via OCR and receive speech feedback.</li>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Interact with an AI chatbot for contextual understanding of captured scenes.</li>
+          <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Benefit from modular, locally sourced components for easy maintenance and scalability.</li>
+        </ul>
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <img src="blindpeoplewithcane.avif" alt="Target Users" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Project Goal</h2>
+      <p>readlens is an affordable, wearable AI smart glasses system designed to assist blind and myopic patients in daily navigation and reading tasks. It integrates a camera, distance sensor, and AI-powered smartphone app to perform object identification, obstacle detection, and text recognition, providing real-time audio feedback through embedded speakers.</p>
+      <p><strong>Solution Strategy:</strong></p>
+      <ul>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">📷 Utilize ESP32 S3 + OV5640 camera for real-time image capture and distance sensing.</li>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">🔊 Implement audio feedback system using PAM8403 amplifier and micro earphone drivers for clear speech output.</li>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">🤖 Develop readlens App (AI-powered) to process captured images for OCR or object detection and allow users to query the AI chatbot for contextual understanding.</li>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">⚙️ Ensure plug-and-play modular design for easy assembly, maintenance, and local component sourcing in Malaysia.</li>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">🧭 Provide real-time obstacle alerts to enhance mobility safety for visually impaired users.</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Global Impact Alignment</h2>
+      <p>The readlens system is closely aligned with the <strong>UN Sustainable Development Goal 3 (Good Health and Well-Being)</strong>, specifically <strong>Target 3.8</strong>: Achieve universal health coverage and access to assistive technologies for persons with disabilities.</p>
+      
+      <table style="width: 100%; text-align: left; border-collapse: collapse; margin-top: 1.5rem; margin-bottom: 2rem;">
+        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+          <th style="padding: 1rem 0; color: var(--primary-color);">Category</th>
+          <th style="padding: 1rem 0; color: var(--primary-color);">readlens Contribution</th>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+          <td style="padding: 1rem 0; font-weight: bold; width: 30%;">Direct Impact</td>
+          <td style="padding: 1rem 0; color: var(--text-muted);">Empowers blind and myopic individuals with independence through AI-assisted navigation and reading.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+          <td style="padding: 1rem 0; font-weight: bold;">Target Achievement</td>
+          <td style="padding: 1rem 0; color: var(--text-muted);">Addresses accessibility gaps in Malaysia by providing a low-cost, locally manufacturable assistive device.</td>
+        </tr>
+        <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+          <td style="padding: 1rem 0; font-weight: bold;">Health Outcome</td>
+          <td style="padding: 1rem 0; color: var(--text-muted);">Reduces mental strain, social isolation, and accidents caused by visual impairment through real-time feedback and safe mobility.</td>
+        </tr>
+        <tr>
+          <td style="padding: 1rem 0; font-weight: bold;">Alignment</td>
+          <td style="padding: 1rem 0; color: var(--text-muted);">Supports Malaysia's Digital Inclusion and Accessibility Framework (2025–2030) by integrating AI into healthcare and assistive technologies.</td>
+        </tr>
+      </table>
+
+      <h3>Broader Societal Benefits</h3>
+      <ul>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Enhances educational access for visually impaired students through text-to-speech reading.</li>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Promotes safe urban mobility with obstacle detection and distance alerts.</li>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Encourages local innovation by using components available in Malaysia's maker ecosystem.</li>
+        <li style="margin-bottom: 0.5rem; color: var(--text-muted);">Contributes to inclusive technology development, aligning with SDG 10: Reduced Inequalities.</li>
+      </ul>
+    </section>
+
+    <section class="content-section">
+      <h2>Benchmarking</h2>
+      <p>Comparing readlens against existing solutions in the market.</p>
+      
+      <div style="overflow-x: auto; margin-top: 1.5rem;">
+        <table style="width: 100%; text-align: left; border-collapse: collapse; min-width: 800px;">
+          <tr style="border-bottom: 2px solid var(--primary-color);">
+            <th style="padding: 1rem; color: var(--primary-color);">User Needs / Products</th>
+            <th style="padding: 1rem; color: var(--primary-color);">Google Lookout App</th>
+            <th style="padding: 1rem; color: var(--primary-color);">Envision Glasses</th>
+            <th style="padding: 1rem; color: var(--primary-color);">OrCam MyEye Pro</th>
+            <th style="padding: 1rem; color: var(--primary-color);">readlens</th>
+          </tr>
+          
+          <!-- Category 1 -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">1. OBSTACLE DETECTION & SAFETY</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">Detection Accuracy</td>
+            <td style="padding: 1rem; color: var(--text-muted);">~ 75% (camera AI only)</td>
+            <td style="padding: 1rem; color: var(--text-muted);">~ 85% (camera AI only)</td>
+            <td style="padding: 1rem; color: var(--text-muted);">~ 80% (object recognition only)</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≥ 90% (distance sensor + camera AI)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">Warning Time</td>
+            <td style="padding: 1rem; color: var(--text-muted);">1–2 s (cloud processing)</td>
+            <td style="padding: 1rem; color: var(--text-muted);">1–2 s (cloud processing)</td>
+            <td style="padding: 1rem; color: var(--text-muted);">1 s (on-device)</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≤ 300 ms (real-time sensor)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">Audio Feedback</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Smartphone speaker</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Bluetooth earpiece</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Built-in speaker</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">Real-time voice alerts (PAM8403)</td>
+          </tr>
+
+          <!-- Category 2 -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">2. TEXT RECOGNITION (OCR)</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">OCR Engine</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Google Cloud Vision</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Envision AI Cloud</td>
+            <td style="padding: 1rem; color: var(--text-muted);">OrCam AI Offline</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">Smartphone App (Gemini / Tesseract)</td>
+          </tr>
+
+          <!-- Category 3 -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">3. OBJECT IDENTIFICATION</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">Interaction</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Limited voice commands</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Limited voice commands</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Fixed responses</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">User can ask AI chatbot follow-up questions</td>
+          </tr>
+
+          <!-- Category 4 -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">4. ACCESSIBILITY & USABILITY</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">Installation Type</td>
+            <td style="padding: 1rem; color: var(--text-muted);">App installation</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Fully integrated</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Clip-on module</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">Plug-and-play (USB charging + Bluetooth)</td>
+          </tr>
+
+          <!-- Category 5 -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">5. COST & MAINTENANCE</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem; font-weight: 500;">Estimated Cost</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Free app</td>
+            <td style="padding: 1rem; color: var(--text-muted);">> RM 10,000</td>
+            <td style="padding: 1rem; color: var(--text-muted);">> RM 15,000</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≤ RM 300 (BOM target)</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="content-section" style="display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+      <div style="flex: 1; min-width: 300px;">
+        <h2>Research Validation</h2>
+        <p>readlens is built on a solid scientific foundation. The core logic for AI-assisted navigation, obstacle detection, and accessibility is rigorously validated against key peer-reviewed research papers and established psychophysiological measures.</p>
+        
+        <div class="btn-container" style="display: flex; flex-direction: column; gap: 1rem;">
+          <a href="https://journals.plos.org/plosone/article?id=10.1371%2Fjournal.pone.0299768" target="_blank" class="btn-apple btn-apple-secondary" style="display: block; width: 100%; text-align: left; padding: 20px;">Prevalence of visual impairment and its causes in adults aged 50 years and older: Estimates from the National Eye Surveys in Malaysia (PLOS One)</a>
+          <a href="https://visionatlas.iapb.org/country-data/malaysia/" target="_blank" class="btn-apple btn-apple-secondary" style="display: block; width: 100%; text-align: left; padding: 20px;">The Value of Vision: The case for investing in eye health (IAPB Vision Atlas)</a>
+          <a href="https://ejournal.usm.my/mjms/article/download/mjms_vol33-no1-2026_2/pdf" target="_blank" class="btn-apple btn-apple-secondary" style="display: block; width: 100%; text-align: left; padding: 20px;">Prevalence of Myopia in Children and Adolescents: A Systematic Review of Malaysian Prevalence Studies (USM)</a>
+        </div>
+      </div>
+      <div style="flex: 1; min-width: 300px;">
+        <img src="blindwithbraille.JPEG" alt="Research Validation" style="width: 100%; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 readlens Project. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="../three-header.js"></script>
+</body>
+</html>
