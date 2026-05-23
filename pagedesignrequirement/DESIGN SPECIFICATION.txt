@@ -1,0 +1,19 @@
+DESIGN SPECIFICATION				
+				
+				
+NO.	User Need	Design Attribute	Design Characteristic	Engineering Target
+	Must Have			
+1	Object identification	Detection accuracy	Percentage of correctly identified everyday objects	≥ 90%
+2	Text accessibility (OCR)	OCR success rate	Percentage of correctly recognized printed words	≥ 80% accuracy (printed), ≥ 70% (handwritten if supported)
+3	Text accessibility (OCR)	Latency	Time from button press → image capture → audio playback	≤ 1.0 s
+4	Should Have			
+5	Feedback clarity	Audio latency	Delay between detection/recognition and audio output through mini speaker	≤ 100 ms
+6	Comfort & usability	Weight	Total mass of glasses including frame, electronics, and battery	≤ 150 g
+7	Independence	Battery life	Continuous operating time on a single full charge (Li‑Po 1200 mAh)	≥ 4 hours
+8	Could Have			
+9	Affordability	Unit cost	Total bill of materials cost for prototype assembly	≤ RM 300
+10	Privacy & security	Data handling	Image processing occurs locally unless user opts in for cloud OCR	Local default, cloud optional
+11	Ergonomics	Usability of button & audio clarity	Ease of pressing tactile button, clarity of mini speaker audio	Button force ≤ 1 N, audio intelligibility ≥ 85% word recognition
+12	Won't Have			
+13	Complex Analytics: High-level data processing.	Video Streaming: Live feed to a remote server.	Not important now; will be left out to focus on POC	N/A (not implemented in this phase).
+14	Social Integration: Non-essential features.	Facial Recognition: Identifying strangers in public.	Excluded due to privacy and hardware constraints.	N/A (not implemented in this phase).

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -79,6 +79,125 @@
             <td style="padding: 1rem; color: var(--text-muted);">Uses ESP32 S3, OV5640, PAM8403, and Li-Po battery (1000–1500 mAh) available in Malaysia.</td>
             <td style="padding: 1rem; color: var(--text-muted);">Users require cost-effective assistive technology.</td>
             <td style="padding: 1rem; color: var(--text-muted);">Reduces dependency on imported devices (e.g., OrCam, Envision); promotes accessibility and local innovation.</td>
+          </tr>
+        </table>
+      </div>
+    </section>
+
+    <section class="content-section">
+      <h2>Design Specification</h2>
+      <div style="overflow-x: auto; margin-top: 1.5rem;">
+        <table style="width: 100%; text-align: left; border-collapse: collapse; min-width: 800px;">
+          <tr style="border-bottom: 2px solid var(--primary-color);">
+            <th style="padding: 1rem; color: var(--primary-color);">NO.</th>
+            <th style="padding: 1rem; color: var(--primary-color);">User Need</th>
+            <th style="padding: 1rem; color: var(--primary-color);">Design Attribute</th>
+            <th style="padding: 1rem; color: var(--primary-color);">Design Characteristic</th>
+            <th style="padding: 1rem; color: var(--primary-color);">Engineering Target</th>
+          </tr>
+
+          <!-- Must Have -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">Must Have</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">1</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Navigation safety</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Response time</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Time taken from obstacle detection to audio/haptic alert output</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≤ 300 ms</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">2</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Object identification</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Detection accuracy</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Percentage of correctly identified everyday objects</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≥ 90%</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">3</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Text accessibility (OCR)</td>
+            <td style="padding: 1rem; color: var(--text-muted);">OCR success rate</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Percentage of correctly recognized printed words</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≥ 80% accuracy (printed), ≥ 70% (handwritten if supported)</td>
+          </tr>
+
+          <!-- Should Have -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">Should Have</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">4</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Text accessibility (OCR)</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Latency</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Time from button press → image capture → audio playback</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≤ 1.0 s</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">5</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Feedback clarity</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Audio latency</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Delay between detection/recognition and audio output through mini speaker</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≤ 100 ms</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">6</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Comfort & usability</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Weight</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Total mass of glasses including frame, electronics, and battery</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≤ 150 g</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">7</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Independence</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Battery life</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Continuous operating time on a single full charge (Li‑Po 1200 mAh)</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≥ 4 hours</td>
+          </tr>
+
+          <!-- Could Have -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">Could Have</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">8</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Affordability</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Unit cost</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Total bill of materials cost for prototype assembly</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">≤ RM 300</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">9</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Privacy & security</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Data handling</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Image processing occurs locally unless user opts in for cloud OCR</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">Local default, cloud optional</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">10</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Ergonomics</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Usability of button & audio clarity</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Ease of pressing tactile button, clarity of mini speaker audio</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">Button force ≤ 1 N, audio intelligibility ≥ 85% word recognition</td>
+          </tr>
+
+          <!-- Won't Have -->
+          <tr style="background: rgba(41, 151, 255, 0.1);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: #fff;">Won't Have</td>
+          </tr>
+          <tr style="border-bottom: 1px solid rgba(255, 255, 255, 0.05);">
+            <td style="padding: 1rem; font-weight: 500;">11</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Complex Analytics: High-level data processing.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Video Streaming: Live feed to a remote server.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Not important now; will be left out to focus on POC</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">N/A (not implemented in this phase).</td>
+          </tr>
+          <tr>
+            <td style="padding: 1rem; font-weight: 500;">12</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Social Integration: Non-essential features.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Facial Recognition: Identifying strangers in public.</td>
+            <td style="padding: 1rem; color: var(--text-muted);">Excluded due to privacy and hardware constraints.</td>
+            <td style="padding: 1rem; font-weight: bold; color: #fff;">N/A (not implemented in this phase).</td>
           </tr>
         </table>
       </div>

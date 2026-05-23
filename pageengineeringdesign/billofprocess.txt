@@ -1,0 +1,15 @@
+Part No.	Enablers / Components 	Estimated Cost (RM)	Manufacturing Process
+1	ESP32‑S3 microcontroller	40.68	Purchase
+2	OV5640 camera module		Purchase
+3	Micro earphone speaker units (16–32 Ω)	6.02	Purchase
+4	Lithium‑ion battery (1200 mAh)	13.99	Purchase
+5	TP4056 charging module	3.00	Purchase
+7	Tactile push button	0.33	Purchase
+8	Glasses frame housing		Purchase
+9	PCB/perfboard + wiring	4.39	Purchase
+10	ESP32‑S3 firmware (Arduino IDE / ESP‑IDF)	-	To code
+11	Smartphone app (JS framework: React Native/Ionic)	-	To code
+12	OCR engine (Gemini API priority, fallback Tesseract.js/EasyOCR)	-	To code
+13	TTS engine (Web Speech API / native TTS)	-	To code
+14	Bluetooth A2DP/SBC stack	-	To code
+	Total	68.41	
