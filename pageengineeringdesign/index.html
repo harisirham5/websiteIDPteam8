@@ -1,80 +1,252 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>readlens - Engineering Design</title>
-  <meta name="description" content="Engineering design, architecture, and timeline of the readlens driver monitoring system.">
+  <meta name="description"
+    content="Engineering design, architecture, and timeline of the readlens driver monitoring system.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
 </head>
+
 <body>
-  
+
   <div id="canvas-container"></div>
 
   <nav>
-    <a href="../index.html" class="logo">readlens</a>
+    <a href="../index.html" class="logo">
+      <img src="../blacklogoandtext.png" alt="readlens">
+    </a>
     <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
     <div class="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="../pageourteam/index.html">Our Team</a>
-      <a href="../pageproblemidentification/index.html">Problem Identification</a>
-      <a href="index.html" class="active">Engineering Design</a>
-      <a href="../pagedesignrequirement/index.html">Design Requirements</a>
+      <div class="nav-item">
+        <a href="../index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="../index.html#welcome">Welcome</a>
+          <a href="../index.html#stats">By The Numbers</a>
+          <a href="../index.html#features">Key Features</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../pageourteam/index.html">Our Team</a>
+      </div>
+      <div class="nav-item">
+        <a href="../pageproblemidentification/index.html">Problem Identification</a>
+        <div class="nav-dropdown">
+          <a href="../pageproblemidentification/index.html#challenge">The Challenge</a>
+          <a href="../pageproblemidentification/index.html#target-users">Target Users</a>
+          <a href="../pageproblemidentification/index.html#project-goal">Project Goal</a>
+          <a href="../pageproblemidentification/index.html#global-impact">Global Impact</a>
+          <a href="../pageproblemidentification/index.html#benchmarking">Benchmarking</a>
+          <a href="../pageproblemidentification/index.html#research">Research</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html" class="active">Engineering Design</a>
+        <div class="nav-dropdown">
+          <a href="index.html#bill-of-process">Bill of Process</a>
+          <a href="index.html#system-flowchart">System Flowchart</a>
+          <a href="index.html#project-timeline">Project Timeline</a>
+          <a href="index.html#design-sketch">Design Sketch</a>
+          <a href="index.html#circuit-diagram">Circuit Diagram</a>
+          <a href="index.html#test-cards">Test Cards</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../pagedesignrequirement/index.html">Design Requirements</a>
+        <div class="nav-dropdown">
+          <a href="../pagedesignrequirement/index.html#design-specification">Design Specification</a>
+        </div>
+      </div>
     </div>
   </nav>
 
-  <main class="page-container">
-    <div class="page-header">
-      <h1 class="page-title">Engineering Design</h1>
-      <p style="color: var(--text-muted); font-size: 1.2rem;">System Architecture and Processes</p>
+  <header class="hero-subpage">
+    <div class="hero-content">
+      <h1 class="hero-title fade-in">Engineering Design</h1>
+      <p class="hero-subtitle fade-in" style="animation-delay: 0.2s;">System Architecture and Processes</p>
     </div>
+  </header>
 
-    <section class="content-section">
+  <main class="page-container">
+
+    <section class="content-section" id="bill-of-process">
       <h2>Bill of Process</h2>
-      <p>The manufacturing and assembly process is optimized for cost-efficiency while maintaining high reliability for the readlens smart glasses hardware.</p>
-      <div class="img-container">
-        <img src="biilingofprocess.png" alt="Bill of Process" onerror="this.style.display='none'">
+      <p>A comprehensive breakdown of the hardware and software components required to build readlens, alongside their estimated costs and manufacturing processes.</p>
+
+      <div style="overflow-x: auto; margin-top: 2rem;">
+        <table style="width: 100%; text-align: left; border-collapse: collapse; min-width: 800px;">
+          <tr style="border-bottom: 2px solid var(--em2);">
+            <th style="padding: 1rem; color: var(--slate);">Part No.</th>
+            <th style="padding: 1rem; color: var(--slate);">Enablers / Components</th>
+            <th style="padding: 1rem; color: var(--slate);">Manufacturing Process</th>
+            <th style="padding: 1rem; color: var(--slate);">Functionality</th>
+            <th style="padding: 1rem; color: var(--em2);">Estimated Cost (RM)</th>
+          </tr>
+
+          <tr style="background: var(--em3);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: var(--slate);">Hardware Components</td>
+          </tr>
+          
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">1</td>
+            <td style="padding: 1rem; font-weight: bold;">ESP32‑S3 microcontroller</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Main processor, Bluetooth A2DP/SBC, I²S audio output</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">40.68</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">2</td>
+            <td style="padding: 1rem; font-weight: bold;">OV5640 camera module</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Captures images for OCR/Object ID</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">-</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">3</td>
+            <td style="padding: 1rem; font-weight: bold;">Micro earphone speaker units (16–32 Ω)</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Lightweight audio output</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">6.02</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">4</td>
+            <td style="padding: 1rem; font-weight: bold;">Lithium‑ion battery (1200 mAh)</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Power source</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">13.99</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">5</td>
+            <td style="padding: 1rem; font-weight: bold;">TP4056 charging module</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Safe battery charging (USB/Type‑C)</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">3.00</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">6</td>
+            <td style="padding: 1rem; font-weight: bold;">Tactile push button</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">User input trigger</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">0.33</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">7</td>
+            <td style="padding: 1rem; font-weight: bold;">Glasses frame housing</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Embeds electronics</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">-</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">8</td>
+            <td style="padding: 1rem; font-weight: bold;">PCB/perfboard + wiring</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Mounting and connections</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">4.39</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">9</td>
+            <td style="padding: 1rem; font-weight: bold;">DC3V Mini Vibration Motors 10000rpm</td>
+            <td style="padding: 1rem; color: var(--muted);">Purchase</td>
+            <td style="padding: 1rem; color: var(--muted);">Vibrations</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">4.00</td>
+          </tr>
+
+          <tr style="background: var(--em3);">
+            <td colspan="5" style="padding: 0.8rem 1rem; font-weight: bold; color: var(--slate);">Software Components</td>
+          </tr>
+
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">10</td>
+            <td style="padding: 1rem; font-weight: bold;">ESP32‑S3 firmware</td>
+            <td style="padding: 1rem; color: var(--muted);">To code</td>
+            <td style="padding: 1rem; color: var(--muted);">Handles camera trigger, Bluetooth audio, button input</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">-</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">11</td>
+            <td style="padding: 1rem; font-weight: bold;">Smartphone app (React Native/Ionic)</td>
+            <td style="padding: 1rem; color: var(--muted);">To code</td>
+            <td style="padding: 1rem; color: var(--muted);">OCR (Gemini/Tesseract.js), TTS, mode control</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">-</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">12</td>
+            <td style="padding: 1rem; font-weight: bold;">OCR engine</td>
+            <td style="padding: 1rem; color: var(--muted);">To code</td>
+            <td style="padding: 1rem; color: var(--muted);">Extracts text from images (Gemini API / Tesseract)</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">-</td>
+          </tr>
+          <tr style="border-bottom: 1px solid var(--border);">
+            <td style="padding: 1rem; font-weight: 500;">13</td>
+            <td style="padding: 1rem; font-weight: bold;">TTS engine</td>
+            <td style="padding: 1rem; color: var(--muted);">To code</td>
+            <td style="padding: 1rem; color: var(--muted);">Converts text into speech</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">-</td>
+          </tr>
+          <tr style="border-bottom: 2px solid var(--em2);">
+            <td style="padding: 1rem; font-weight: 500;">14</td>
+            <td style="padding: 1rem; font-weight: bold;">Bluetooth A2DP/SBC stack</td>
+            <td style="padding: 1rem; color: var(--muted);">To code</td>
+            <td style="padding: 1rem; color: var(--muted);">Audio streaming protocol</td>
+            <td style="padding: 1rem; font-weight: bold; color: var(--em2);">-</td>
+          </tr>
+
+          <tr style="background: rgba(16, 185, 129, 0.1);">
+            <td colspan="4" style="padding: 1.2rem 1rem; text-align: right; font-weight: 800; color: var(--slate); font-size: 1.1rem;">Total Estimated Cost:</td>
+            <td style="padding: 1.2rem 1rem; font-weight: 900; color: var(--em2); font-size: 1.2rem;">RM 72.41</td>
+          </tr>
+        </table>
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="system-flowchart">
       <h2>System Flowchart</h2>
-      <p>The logical flow of the system, from continuous environmental scanning via the camera module to data processing and alert activation. The system uses a microcontroller to analyze obstacle distances in real-time and capture images for AI text-recognition.</p>
+      <p>The logical flow of the system, from continuous environmental scanning via the camera module to data processing
+        and alert activation. The system uses a microcontroller to analyze obstacle distances in real-time and capture
+        images for AI text-recognition.</p>
       <div class="img-container">
         <img src="flowchartnew.png" alt="System Flowchart" onerror="this.style.display='none'">
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="timeline-section" id="project-timeline">
       <h2>Project Timeline</h2>
-      <p>Strategic milestones tracking the research, prototyping, and deployment phases of the readlens system.</p>
-      <div class="img-container">
-        <img src="projecttimeline.png" alt="Project Timeline" onerror="this.style.display='none'">
-      </div>
+      <p style="color: var(--muted); margin-bottom: 1.5rem;">Strategic milestones tracking the research, prototyping,
+        and deployment phases of the readlens system.</p>
+      <iframe src="../gantt_chart.html" class="timeline-iframe" title="ReadLens Project Timeline Gantt Chart"></iframe>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="design-sketch">
       <h2>Design Sketch</h2>
-      <p>The wearable form factor is optimized for an unobtrusive, lightweight presence. It is designed to be comfortably worn by blind and myopic users for extended periods without causing physical strain, seamlessly integrating the camera and sensors.</p>
+      <p>The wearable form factor is optimized for an unobtrusive, lightweight presence. It is designed to be
+        comfortably worn by blind and myopic users for extended periods without causing physical strain, seamlessly
+        integrating the camera and sensors.</p>
       <div class="img-container">
         <img src="../pagedesignrequirement/designsketch.png" alt="Design Sketch" onerror="this.style.display='none'">
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="circuit-diagram">
       <h2>Circuit Diagram</h2>
-      <p>The hardware architecture leverages a robust ESP32-S3 microcontroller capable of local processing and Bluetooth communication, interconnected with the OV5640 camera sensor, distance sensors, and the PAM8403 audio amplifier module.</p>
+      <p>The hardware architecture leverages a robust ESP32-S3 microcontroller capable of local processing and Bluetooth
+        communication, interconnected with the OV5640 camera sensor, distance sensors, and the PAM8403 audio amplifier
+        module.</p>
       <div class="img-container">
-        <img src="../pagedesignrequirement/circuit diagram1.png" alt="Circuit Diagram" onerror="this.style.display='none'">
+        <img src="../pagedesignrequirement/circuit diagram1.png" alt="Circuit Diagram"
+          onerror="this.style.display='none'">
       </div>
     </section>
 
-    <section class="content-section">
+    <section class="content-section" id="test-cards">
       <h2>Test Cards</h2>
       <p>Performance validation using standard test cards.</p>
       <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
@@ -96,4 +268,5 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="../three-header.js"></script>
 </body>
+
 </html>

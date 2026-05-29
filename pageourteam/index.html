@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -7,7 +7,7 @@
   <meta name="description" content="Meet the team behind the readlens smart glasses project.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
@@ -15,24 +15,63 @@
   <div id="canvas-container"></div>
 
   <nav>
-    <a href="../index.html" class="logo">readlens</a>
+    <a href="../index.html" class="logo">
+      <img src="../blacklogoandtext.png" alt="readlens">
+    </a>
     <div class="hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
     </div>
     <div class="nav-links">
-      <a href="../index.html">Home</a>
-      <a href="index.html" class="active">Our Team</a>
-      <a href="../pageproblemidentification/index.html">Problem Identification</a>
-      <a href="../pageengineeringdesign/index.html">Engineering Design</a>
-      <a href="../pagedesignrequirement/index.html">Design Requirements</a>
+      <div class="nav-item">
+        <a href="../index.html">Home</a>
+        <div class="nav-dropdown">
+          <a href="../index.html#welcome">Welcome</a>
+          <a href="../index.html#stats">By The Numbers</a>
+          <a href="../index.html#features">Key Features</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="index.html" class="active">Our Team</a>
+      </div>
+      <div class="nav-item">
+        <a href="../pageproblemidentification/index.html">Problem Identification</a>
+        <div class="nav-dropdown">
+          <a href="../pageproblemidentification/index.html#challenge">The Challenge</a>
+          <a href="../pageproblemidentification/index.html#target-users">Target Users</a>
+          <a href="../pageproblemidentification/index.html#project-goal">Project Goal</a>
+          <a href="../pageproblemidentification/index.html#global-impact">Global Impact</a>
+          <a href="../pageproblemidentification/index.html#benchmarking">Benchmarking</a>
+          <a href="../pageproblemidentification/index.html#research">Research</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../pageengineeringdesign/index.html">Engineering Design</a>
+        <div class="nav-dropdown">
+          <a href="../pageengineeringdesign/index.html#bill-of-process">Bill of Process</a>
+          <a href="../pageengineeringdesign/index.html#system-flowchart">System Flowchart</a>
+          <a href="../pageengineeringdesign/index.html#project-timeline">Project Timeline</a>
+          <a href="../pageengineeringdesign/index.html#design-sketch">Design Sketch</a>
+          <a href="../pageengineeringdesign/index.html#circuit-diagram">Circuit Diagram</a>
+          <a href="../pageengineeringdesign/index.html#test-cards">Test Cards</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="../pagedesignrequirement/index.html">Design Requirements</a>
+        <div class="nav-dropdown">
+          <a href="../pagedesignrequirement/index.html#design-specification">Design Specification</a>
+        </div>
+      </div>
     </div>
   </nav>
 
-  <main class="page-container">
-    <div class="page-header">
-      <h1 class="page-title">Meet the Team</h1>
-      <p style="color: var(--text-muted); font-size: 1.2rem;">The innovators behind readlens.</p>
+  <header class="hero-subpage">
+    <div class="hero-content">
+      <h1 class="hero-title fade-in">Meet the Team</h1>
+      <p class="hero-subtitle fade-in" style="animation-delay: 0.2s;">The innovators behind readlens.</p>
     </div>
+  </header>
+
+  <main class="page-container">
 
     <div class="team-grid">
       

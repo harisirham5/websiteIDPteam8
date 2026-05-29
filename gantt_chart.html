@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>readlens — Project Timeline</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --white:   #ffffff;
+  --bg:      #f4f7f6;
+  --bg2:     #edf2f0;
+  --slate:   #2d3f4e;
+  --slate2:  #3d5260;
+  --slate-l: #647d8e;
+  --slate-xl: #a0b4bf;
+  --em:      #10b981;
+  --em2:     #059669;
+  --em3:     #d1fae5;
+  --em4:     #a7f3d0;
+  --border:  #dde6e2;
+  --border2: #eaf0ed;
+  --text:    #1a2e38;
+  --muted:   #5a7080;
+  --faint:   #9ab0bc;
+  --label-w: 280px;
+  --wk-w:    62px;
+  --row-h:   56px;
+  --cat-h:   40px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  min-height: 100vh;
+}
+
+/* ── NAV ── */
+nav {
+  position: sticky; top: 0; z-index: 200;
+  height: 68px;
+  background: rgba(255,255,255,0.94);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+  display: flex; align-items: center;
+  padding: 0 44px; gap: 0;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.04);
+}
+
+.nav-logo {
+  font-family: 'Outfit', sans-serif;
+  font-size: 20px; font-weight: 800;
+  color: var(--slate); text-decoration: none;
+  letter-spacing: -0.03em; margin-right: auto;
+}
+.nav-logo span { color: var(--em); }
+
+.nav-links { display: flex; gap: 2px; list-style: none; }
+.nav-links a {
+  color: var(--muted); text-decoration: none;
+  font-size: 14px; font-weight: 500;
+  padding: 7px 15px; border-radius: 8px;
+  transition: color .18s, background .18s;
+}
+.nav-links a:hover { color: var(--slate); background: var(--bg2); }
+.nav-links a.active { color: var(--em2); background: var(--em3); }
+
+/* ── PAGE ── */
+.page { max-width: 1380px; margin: 0 auto; padding: 64px 44px 88px; }
+
+/* ── HERO ── */
+.hero {
+  margin-bottom: 56px;
+  opacity: 0; animation: fadeUp .7s ease forwards .05s;
+  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: end;
+}
+
+.hero-left {}
+
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--em3); color: var(--em2);
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .1em; text-transform: uppercase;
+  padding: 5px 14px; border-radius: 999px;
+  margin-bottom: 18px;
+}
+.hero-tag-dot { width: 7px; height: 7px; border-radius: 50%; background: var(--em); }
+
+.hero h1 {
+  font-family: 'Outfit', sans-serif;
+  font-size: clamp(36px, 5vw, 58px);
+  font-weight: 800; letter-spacing: -.04em;
+  color: var(--slate); line-height: 1.05;
+}
+
+.hero p {
+  margin-top: 14px; color: var(--muted);
+  font-size: 16.5px; line-height: 1.7;
+  max-width: 480px; font-weight: 400;
+}
+
+.hero-accent {
+  width: 48px; height: 4px;
+  background: linear-gradient(90deg, var(--em), var(--em2));
+  border-radius: 2px; margin-top: 24px;
+}
+
+/* ── STAT CARDS ── */
+.stats-row {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  margin-bottom: 36px;
+  opacity: 0; animation: fadeUp .7s ease forwards .15s;
+}
+
+.stat {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 26px;
+  display: flex; flex-direction: column; gap: 4px;
+  cursor: default;
+  transition: transform .2s ease, box-shadow .2s ease, border-color .2s;
+  position: relative; overflow: hidden;
+}
+
+.stat::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--em), var(--em2));
+  border-radius: 16px 16px 0 0;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform .3s ease;
+}
+
+.stat:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(16,185,129,.12); border-color: var(--em4); }
+.stat:hover::before { transform: scaleX(1); }
+
+.stat-num {
+  font-family: 'Outfit', sans-serif;
+  font-size: 32px; font-weight: 800;
+  letter-spacing: -.04em; color: var(--em2);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 12px; font-weight: 600;
+  color: var(--faint); text-transform: uppercase; letter-spacing: .08em;
+}
+
+/* ── FILTERS / CONTROLS ── */
+.controls {
+  display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  margin-bottom: 20px;
+  opacity: 0; animation: fadeUp .7s ease forwards .22s;
+}
+
+.filter-label {
+  font-size: 13px; font-weight: 600; color: var(--muted);
+  margin-right: 4px;
+}
+
+.filter-btn {
+  padding: 7px 16px;
+  border-radius: 8px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer;
+  transition: all .18s ease;
+}
+.filter-btn:hover { border-color: var(--em); color: var(--em2); background: var(--em3); }
+.filter-btn.active { border-color: var(--em2); color: var(--white); background: var(--em2); }
+
+.controls-right { margin-left: auto; display: flex; gap: 10px; align-items: center; }
+
+.search-wrap {
+  position: relative;
+}
+.search-icon {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  color: var(--faint); pointer-events: none;
+  font-size: 15px;
+}
+.search-input {
+  padding: 8px 14px 8px 36px;
+  border: 1.5px solid var(--border);
+  border-radius: 9px; background: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px; color: var(--text);
+  width: 220px;
+  transition: border-color .18s, box-shadow .18s;
+  outline: none;
+}
+.search-input:focus { border-color: var(--em); box-shadow: 0 0 0 3px rgba(16,185,129,.12); }
+.search-input::placeholder { color: var(--faint); }
+
+/* ── LEGEND ── */
+.legend {
+  display: flex; gap: 20px; margin-bottom: 16px; flex-wrap: wrap;
+  opacity: 0; animation: fadeUp .7s ease forwards .27s;
+  align-items: center;
+}
+
+.legend-item { display: flex; align-items: center; gap: 7px; font-size: 13px; color: var(--muted); font-weight: 500; }
+.legend-swatch { width: 22px; height: 9px; border-radius: 3px; }
+.legend-swatch.bar { background: linear-gradient(90deg, var(--em2), var(--em)); }
+.legend-swatch.cat { background: var(--em3); border: 1px solid var(--em4); }
+
+/* ── CHART ── */
+.chart-wrap {
+  opacity: 0; animation: fadeUp .7s ease forwards .3s;
+}
+
+.chart-container {
+  border: 1px solid var(--border);
+  border-radius: 18px; overflow: hidden;
+  background: var(--white);
+  box-shadow: 0 2px 8px rgba(0,0,0,.04), 0 8px 32px rgba(0,0,0,.04);
+}
+
+.chart-scroll { overflow-x: auto; }
+.chart-scroll::-webkit-scrollbar { height: 6px; }
+.chart-scroll::-webkit-scrollbar-track { background: var(--bg2); }
+.chart-scroll::-webkit-scrollbar-thumb { background: var(--slate-xl); border-radius: 3px; }
+
+table { border-collapse: collapse; width: max-content; min-width: 100%; }
+
+/* HEADER */
+.thead-row th {
+  position: sticky; top: 0; z-index: 10;
+  height: 48px;
+  background: var(--slate);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .08em; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+}
+
+.th-label {
+  width: var(--label-w); min-width: var(--label-w);
+  text-align: left; padding: 0 22px;
+  border-right: 1px solid rgba(255,255,255,.08);
+  background: var(--slate2);
+  position: sticky; left: 0; z-index: 11;
+  color: rgba(255,255,255,.8);
+}
+
+.th-week {
+  width: var(--wk-w); min-width: var(--wk-w);
+  text-align: center;
+  border-right: 1px solid rgba(255,255,255,.06);
+  color: rgba(255,255,255,.45);
+}
+
+/* BODY */
+td {
+  height: var(--row-h);
+  border-bottom: 1px solid var(--border2);
+  border-right: 1px solid var(--border2);
+  transition: background .15s;
+}
+
+.td-label {
+  width: var(--label-w); min-width: var(--label-w);
+  padding: 0 22px;
+  border-right: 1px solid var(--border);
+  background: var(--white);
+  position: sticky; left: 0; z-index: 5;
+  vertical-align: middle;
+  transition: background .15s;
+}
+
+.label-main { font-size: 14px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.label-pic { font-size: 12px; color: var(--faint); margin-top: 3px; line-height: 1.3; }
+
+.td-week { vertical-align: middle; padding: 0 6px; }
+
+/* ROW HOVER */
+.data-row { cursor: pointer; }
+.data-row:hover td { background: #f0faf7; }
+.data-row:hover .td-label { background: #e8f7f2; }
+
+/* CATEGORY ROWS */
+.cat-row td {
+  height: var(--cat-h) !important;
+  background: #f0faf7 !important;
+  border-bottom: 1px solid #c6eedd !important;
+}
+.cat-row .td-label {
+  background: var(--em3) !important;
+  border-right-color: var(--em4) !important;
+}
+.cat-label {
+  font-family: 'Outfit', sans-serif;
+  font-size: 12px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--em2);
+}
+
+/* GANTT BAR */
+.gantt-bar {
+  height: 24px; border-radius: 6px;
+  background: linear-gradient(90deg, var(--em2), var(--em));
+  position: relative; overflow: hidden;
+  transform-origin: left center;
+  transform: scaleX(0);
+  transition: transform .7s cubic-bezier(.22,1,.36,1);
+  box-shadow: 0 2px 8px rgba(16,185,129,.2);
+  cursor: pointer;
+}
+
+.gantt-bar.animate { transform: scaleX(1); }
+
+.gantt-bar::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,.3), transparent);
+  transform: translateX(-100%);
+  animation: shimmer 3s ease-in-out infinite;
+  animation-delay: var(--sd, 0s);
+}
+
+.gantt-bar:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 4px 16px rgba(16,185,129,.35);
+}
+
+/* HIGHLIGHT / FADE */
+.data-row.faded td { opacity: .28; }
+.data-row.faded .td-label { opacity: .28; }
+.data-row.highlighted .gantt-bar { box-shadow: 0 0 0 2px var(--em), 0 4px 16px rgba(16,185,129,.3); }
+
+/* ── TOOLTIP ── */
+.tooltip {
+  position: fixed;
+  background: var(--slate);
+  color: #fff;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-size: 13px;
+  font-weight: 500;
+  pointer-events: none;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity .18s, transform .18s;
+  z-index: 9999;
+  max-width: 240px;
+  line-height: 1.5;
+  box-shadow: 0 8px 24px rgba(0,0,0,.2);
+}
+.tooltip.show { opacity: 1; transform: translateY(0); }
+.tooltip-task { font-size: 14px; font-weight: 700; margin-bottom: 4px; color: var(--em); }
+.tooltip-pic { color: rgba(255,255,255,.6); font-size: 12px; }
+.tooltip-weeks { color: rgba(255,255,255,.8); font-size: 12px; margin-top: 4px; }
+
+/* ── DETAIL PANEL ── */
+.detail-panel {
+  position: fixed; right: 0; top: 0; bottom: 0;
+  width: 320px; background: var(--white);
+  border-left: 1px solid var(--border);
+  box-shadow: -8px 0 32px rgba(0,0,0,.08);
+  transform: translateX(100%);
+  transition: transform .35s cubic-bezier(.22,1,.36,1);
+  z-index: 150; overflow-y: auto;
+  padding: 28px 28px;
+  display: flex; flex-direction: column; gap: 20px;
+}
+.detail-panel.open { transform: translateX(0); }
+
+.panel-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--bg2); border: none; border-radius: 8px;
+  width: 32px; height: 32px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; color: var(--muted);
+  transition: background .18s, color .18s;
+}
+.panel-close:hover { background: var(--em3); color: var(--em2); }
+
+.panel-phase {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--em2); background: var(--em3);
+  padding: 4px 10px; border-radius: 999px; display: inline-block;
+}
+
+.panel-task { font-family: 'Outfit', sans-serif; font-size: 20px; font-weight: 800; color: var(--slate); letter-spacing: -.02em; line-height: 1.2; margin-top: 8px; }
+
+.panel-section { display: flex; flex-direction: column; gap: 6px; }
+.panel-section-label { font-size: 11px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
+.panel-section-val { font-size: 14px; font-weight: 500; color: var(--text); }
+
+.panel-pic-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
+.chip {
+  background: var(--em3); color: var(--em2);
+  font-size: 12px; font-weight: 600;
+  padding: 4px 12px; border-radius: 999px;
+}
+
+.panel-timeline {
+  display: flex; gap: 8px; align-items: center;
+}
+.timeline-weeks {
+  display: flex; gap: 4px;
+}
+.wk-pip {
+  width: 24px; height: 24px; border-radius: 6px;
+  background: var(--bg2); border: 1.5px solid var(--border);
+  font-size: 10px; font-weight: 700; color: var(--faint);
+  display: flex; align-items: center; justify-content: center;
+  transition: all .18s;
+}
+.wk-pip.active { background: var(--em2); border-color: var(--em2); color: #fff; }
+
+.panel-divider { height: 1px; background: var(--border); }
+
+/* PROGRESS BAR in panel */
+.progress-wrap { }
+.progress-label { font-size: 12px; color: var(--muted); font-weight: 500; margin-bottom: 6px; display: flex; justify-content: space-between; }
+.progress-track { height: 8px; background: var(--bg2); border-radius: 4px; overflow: hidden; }
+.progress-fill { height: 100%; border-radius: 4px; background: linear-gradient(90deg, var(--em2), var(--em)); transition: width .5s ease .1s; }
+
+/* ── WEEK HOVER COLUMN ── */
+.col-hover { background: rgba(16,185,129,.05) !important; }
+
+/* ── FOOTER ── */
+footer {
+  border-top: 1px solid var(--border);
+  text-align: center; padding: 28px 44px;
+  color: var(--faint); font-size: 14px;
+}
+footer span { color: var(--em2); font-weight: 700; }
+
+/* ── ANIMATIONS ── */
+@keyframes shimmer {
+  0%,65%,100% { transform: translateX(-100%); }
+  35% { transform: translateX(100%); }
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 720px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .page { padding: 40px 20px 60px; }
+  .hero { grid-template-columns: 1fr; }
+  .detail-panel { width: 100%; top: auto; bottom: 0; height: 70vh; border-left: none; border-top: 1px solid var(--border); transform: translateY(100%); }
+  .detail-panel.open { transform: translateY(0); }
+}
+</style>
+</head>
+<body>
+
+
+
+<!-- TOOLTIP -->
+<div class="tooltip" id="tooltip">
+  <div class="tooltip-task" id="tt-task"></div>
+  <div class="tooltip-pic" id="tt-pic"></div>
+  <div class="tooltip-weeks" id="tt-weeks"></div>
+</div>
+
+<!-- DETAIL PANEL -->
+<div class="detail-panel" id="detail-panel">
+  <button class="panel-close" id="panel-close" aria-label="Close panel">✕</button>
+  <div>
+    <div class="panel-phase" id="panel-phase">Phase</div>
+    <div class="panel-task" id="panel-task">Task name</div>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="panel-section">
+    <div class="panel-section-label">Team Members</div>
+    <div class="panel-pic-chips" id="panel-chips"></div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-section-label">Duration</div>
+    <div class="panel-section-val" id="panel-dur"></div>
+  </div>
+  <div class="panel-section">
+    <div class="panel-section-label">Weeks</div>
+    <div class="timeline-weeks" id="panel-wks"></div>
+  </div>
+  <div class="panel-divider"></div>
+  <div class="progress-wrap">
+    <div class="progress-label">
+      <span>Overall project progress</span>
+      <span id="panel-pct">0%</span>
+    </div>
+    <div class="progress-track"><div class="progress-fill" id="panel-prog" style="width:0%"></div></div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-left">
+      <div class="hero-tag"><div class="hero-tag-dot"></div> Engineering Design</div>
+      <h1>Project<br>Timeline</h1>
+      <p>Strategic milestones tracking the research, prototyping, and deployment phases of the readlens smart glasses system.</p>
+      <div class="hero-accent"></div>
+    </div>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats-row">
+    <div class="stat"><div class="stat-num">14</div><div class="stat-label">Weeks Total</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Phases</div></div>
+    <div class="stat"><div class="stat-num">19</div><div class="stat-label">Tasks</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-label">Members</div></div>
+  </div>
+
+  <!-- CONTROLS -->
+  <div class="controls">
+    <span class="filter-label">Filter:</span>
+    <button class="filter-btn active" data-filter="all">All Phases</button>
+    <button class="filter-btn" data-filter="Problem Identification">Problem ID</button>
+    <button class="filter-btn" data-filter="Design Requirements">Design Req.</button>
+    <button class="filter-btn" data-filter="Solution Design">Solution</button>
+    <button class="filter-btn" data-filter="Design Analysis">Analysis</button>
+    <button class="filter-btn" data-filter="Prototyping">Prototyping</button>
+    <button class="filter-btn" data-filter="Validation">Validation</button>
+    <div class="controls-right">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input class="search-input" type="text" id="search-input" placeholder="Search tasks…">
+      </div>
+    </div>
+  </div>
+
+  <!-- LEGEND -->
+  <div class="legend">
+    <div class="legend-item"><div class="legend-swatch bar"></div>Task duration</div>
+    <div class="legend-item"><div class="legend-swatch cat"></div>Phase group</div>
+    <span style="font-size:13px;color:var(--faint);margin-left:8px;">↗ Click any task bar for details</span>
+  </div>
+
+  <!-- CHART -->
+  <div class="chart-wrap">
+    <div class="chart-container">
+      <div class="chart-scroll" id="chart-scroll">
+        <table id="gantt">
+          <thead>
+            <tr class="thead-row">
+              <th class="th-label">Task</th>
+              <th class="th-week">W1</th><th class="th-week">W2</th><th class="th-week">W3</th>
+              <th class="th-week">W4</th><th class="th-week">W5</th><th class="th-week">W6</th>
+              <th class="th-week">W7</th><th class="th-week">W8</th><th class="th-week">W9</th>
+              <th class="th-week">W10</th><th class="th-week">W11</th><th class="th-week">W12</th>
+              <th class="th-week">W13</th><th class="th-week">W14</th>
+            </tr>
+          </thead>
+          <tbody id="gantt-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer>© 2026 <span>readlens</span> Project. All rights reserved.</footer>
+
+<script>
+const WEEKS = 14;
+
+const rows = [
+  {cat:true,  phase:"Problem Identification"},
+  {label:"Analyze user goals and operational workflows", pic:"All team members",     phase:"Problem Identification", s:1, e:1},
+  {label:"Getting user needs",                           pic:"Hariz",                phase:"Problem Identification", s:2, e:3},
+  {label:"Conduct user interviews for deeper insights",  pic:"Haziq, Amir",          phase:"Problem Identification", s:3, e:4},
+
+  {cat:true,  phase:"Design Requirements"},
+  {label:"Determine essential design features based on user needs", pic:"Irham",     phase:"Design Requirements",    s:4, e:6},
+  {label:"Develop design specification table",           pic:"Adam, Hariz, Irham",   phase:"Design Requirements",    s:5, e:7},
+
+  {cat:true,  phase:"Solution Design"},
+  {label:"Design concepts and ideas for each subsystem", pic:"Haziq, Hariz",         phase:"Solution Design",        s:6, e:8},
+  {label:"Design Sketch",                                pic:"Adam",                 phase:"Solution Design",        s:5, e:6},
+  {label:"Bill of Process",                              pic:"Irham",                phase:"Solution Design",        s:6, e:7},
+  {label:"Prototype Mockup",                             pic:"All team members",     phase:"Solution Design",        s:7, e:8},
+
+  {cat:true,  phase:"Design Analysis"},
+  {label:"Analyze component feasibility",                pic:"Amir, Adam, Hariz",    phase:"Design Analysis",        s:8, e:8},
+  {label:"Performance simulation and latency testing",   pic:"Irham, Haziq",         phase:"Design Analysis",        s:8, e:9},
+  {label:"Review design trade-offs",                     pic:"Irham, Hariz",         phase:"Design Analysis",        s:8, e:9},
+  {label:"Finalize design improvements",                 pic:"Hariz",                phase:"Design Analysis",        s:9, e:10},
+
+  {cat:true,  phase:"Prototyping"},
+  {label:"Assemble hardware prototype",                  pic:"All team members",     phase:"Prototyping",            s:9,  e:9},
+  {label:"Integrate firmware and app connectivity",      pic:"Irham, Hariz",         phase:"Prototyping",            s:9,  e:9},
+  {label:"Implement audio feedback and distance alert",  pic:"Adam, Haziq",          phase:"Prototyping",            s:10, e:10},
+  {label:"Document assembly and wiring layout",          pic:"Irham",                phase:"Prototyping",            s:10, e:10},
+
+  {cat:true,  phase:"Validation"},
+  {label:"Testing & Validation",                         pic:"All team members",     phase:"Validation",             s:11, e:14},
+];
+
+const tbody = document.getElementById("gantt-body");
+const tooltip = document.getElementById("tooltip");
+const panel = document.getElementById("detail-panel");
+let currentPhase = "all";
+let activeRow = null;
+let ti = 0;
+
+rows.forEach((row, idx) => {
+  const tr = document.createElement("tr");
+  tr.dataset.phase = row.phase || (row.cat ? row.phase : "");
+
+  if (row.cat) {
+    tr.classList.add("cat-row");
+    tr.dataset.catname = row.phase;
+    const td = document.createElement("td");
+    td.className = "td-label";
+    td.colSpan = WEEKS + 1;
+    td.innerHTML = `<span class="cat-label">${row.phase}</span>`;
+    tr.appendChild(td);
+  } else {
+    tr.classList.add("data-row");
+    tr.dataset.label = row.label.toLowerCase();
+    tr.dataset.rowPhase = row.phase;
+    tr.dataset.rowLabel = row.label;
+    tr.dataset.rowPic = row.pic;
+    tr.dataset.rowS = row.s;
+    tr.dataset.rowE = row.e;
+
+    const tdL = document.createElement("td");
+    tdL.className = "td-label";
+    tdL.innerHTML = `<div class="label-main">${row.label}</div><div class="label-pic">PIC: ${row.pic}</div>`;
+    tr.appendChild(tdL);
+
+    const delay = ti * 0.05;
+    for (let w = 1; w <= WEEKS; w++) {
+      const td = document.createElement("td");
+      td.className = "td-week";
+      td.dataset.week = w;
+
+      if (w >= row.s && w <= row.e) {
+        const bar = document.createElement("div");
+        bar.className = "gantt-bar";
+        bar.style.transitionDelay = `${delay + (w - row.s) * 0.03}s`;
+        bar.style.setProperty("--sd", `${delay}s`);
+        td.appendChild(bar);
+      }
+      tr.appendChild(td);
+    }
+
+    // Row click → open panel
+    tr.addEventListener("click", () => openPanel(tr));
+
+    // Bar hover tooltip
+    tr.addEventListener("mousemove", (e) => {
+      document.getElementById("tt-task").textContent = row.label;
+      document.getElementById("tt-pic").textContent = "PIC: " + row.pic;
+      document.getElementById("tt-weeks").textContent = `Weeks ${row.s}–${row.e} · ${row.e - row.s + 1} week${row.e - row.s === 0 ? "" : "s"}`;
+      tooltip.style.left = (e.clientX + 14) + "px";
+      tooltip.style.top  = (e.clientY - 10) + "px";
+      tooltip.classList.add("show");
+    });
+
+    tr.addEventListener("mouseleave", () => tooltip.classList.remove("show"));
+
+    ti++;
+  }
+
+  tbody.appendChild(tr);
+});
+
+// ── ANIMATE BARS ──
+const obs = new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting) {
+    document.querySelectorAll(".gantt-bar").forEach(b => b.classList.add("animate"));
+    obs.disconnect();
+  }
+}, { threshold: 0.05 });
+obs.observe(document.getElementById("gantt"));
+
+// ── OPEN DETAIL PANEL ──
+function openPanel(tr) {
+  const label   = tr.dataset.rowLabel;
+  const pic     = tr.dataset.rowPic;
+  const phase   = tr.dataset.rowPhase;
+  const s       = parseInt(tr.dataset.rowS);
+  const e       = parseInt(tr.dataset.rowE);
+  const dur     = e - s + 1;
+
+  document.getElementById("panel-phase").textContent = phase;
+  document.getElementById("panel-task").textContent  = label;
+  document.getElementById("panel-dur").textContent   = `${dur} week${dur > 1 ? "s" : ""} (Week ${s} – Week ${e})`;
+
+  // Chips
+  const chips = document.getElementById("panel-chips");
+  chips.innerHTML = "";
+  pic.split(/[,·]/).map(p => p.trim()).filter(Boolean).forEach(p => {
+    const c = document.createElement("div");
+    c.className = "chip";
+    c.textContent = p;
+    chips.appendChild(c);
+  });
+
+  // Week pips
+  const wksEl = document.getElementById("panel-wks");
+  wksEl.innerHTML = "";
+  for (let w = 1; w <= WEEKS; w++) {
+    const pip = document.createElement("div");
+    pip.className = "wk-pip" + (w >= s && w <= e ? " active" : "");
+    pip.textContent = w;
+    wksEl.appendChild(pip);
+  }
+
+  // Progress (simplified: this task's end week / 14)
+  const pct = Math.round((e / WEEKS) * 100);
+  document.getElementById("panel-pct").textContent = pct + "%";
+  document.getElementById("panel-prog").style.width = "0%";
+  setTimeout(() => { document.getElementById("panel-prog").style.width = pct + "%"; }, 50);
+
+  // Highlight row
+  document.querySelectorAll(".data-row").forEach(r => {
+    r.classList.remove("highlighted");
+    if (r !== tr) r.classList.add("faded");
+  });
+  tr.classList.remove("faded");
+  tr.classList.add("highlighted");
+
+  activeRow = tr;
+  panel.classList.add("open");
+}
+
+// ── CLOSE PANEL ──
+document.getElementById("panel-close").addEventListener("click", closePanel);
+document.addEventListener("keydown", e => { if (e.key === "Escape") closePanel(); });
+
+function closePanel() {
+  panel.classList.remove("open");
+  document.querySelectorAll(".data-row").forEach(r => {
+    r.classList.remove("faded", "highlighted");
+  });
+  activeRow = null;
+}
+
+// ── FILTER BUTTONS ──
+document.querySelectorAll(".filter-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    currentPhase = btn.dataset.filter;
+    applyFilters();
+    closePanel();
+  });
+});
+
+// ── SEARCH ──
+document.getElementById("search-input").addEventListener("input", e => {
+  applyFilters(e.target.value.toLowerCase());
+});
+
+function applyFilters(search = "") {
+  let lastCat = null;
+  const allRows = document.querySelectorAll("#gantt-body tr");
+
+  allRows.forEach(tr => {
+    if (tr.classList.contains("cat-row")) {
+      lastCat = tr;
+      return;
+    }
+    const phaseMatch = currentPhase === "all" || tr.dataset.rowPhase === currentPhase;
+    const searchMatch = !search || tr.dataset.label.includes(search);
+    const show = phaseMatch && searchMatch;
+    tr.style.display = show ? "" : "none";
+  });
+
+  // Show/hide category rows based on whether they have visible children
+  allRows.forEach(tr => {
+    if (!tr.classList.contains("cat-row")) return;
+    const phaseName = tr.dataset.catname;
+    const hasVisible = [...allRows].some(r =>
+      !r.classList.contains("cat-row") &&
+      r.dataset.rowPhase === phaseName &&
+      r.style.display !== "none"
+    );
+    tr.style.display = hasVisible ? "" : "none";
+  });
+}
+
+// ── WEEK COLUMN HOVER ──
+const chartScroll = document.getElementById("chart-scroll");
+chartScroll.addEventListener("mousemove", e => {
+  const cell = e.target.closest(".td-week");
+  if (!cell) { clearColHover(); return; }
+  const week = cell.dataset.week;
+  if (!week) return;
+  clearColHover();
+  document.querySelectorAll(`.td-week[data-week="${week}"]`).forEach(c => c.classList.add("col-hover"));
+});
+chartScroll.addEventListener("mouseleave", clearColHover);
+function clearColHover() {
+  document.querySelectorAll(".col-hover").forEach(c => c.classList.remove("col-hover"));
+}
+</script>
+</body>
+</html>
