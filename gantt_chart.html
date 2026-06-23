@@ -471,6 +471,23 @@ footer span { color: var(--em2); font-weight: 700; }
   <div class="tooltip-weeks" id="tt-weeks"></div>
 </div>
 
+<!-- IFRAME DETECT -->
+<script>
+  if (window.self !== window.top) {
+    document.documentElement.style.background = 'transparent';
+    document.addEventListener("DOMContentLoaded", () => {
+      const nav = document.querySelector('nav');
+      const hero = document.querySelector('.hero');
+      const footer = document.querySelector('footer');
+      if (nav) nav.style.display = 'none';
+      if (hero) hero.style.display = 'none';
+      if (footer) footer.style.display = 'none';
+      document.body.style.minHeight = 'auto';
+      document.querySelector('.page').style.padding = '0';
+    });
+  }
+</script>
+
 <!-- DETAIL PANEL -->
 <div class="detail-panel" id="detail-panel">
   <button class="panel-close" id="panel-close" aria-label="Close panel">✕</button>
