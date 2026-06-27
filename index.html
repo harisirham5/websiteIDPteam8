@@ -1,100 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>readlens - Advanced Assistive Navigation System</title>
-  <meta name="description"
-    content="readlens is an affordable AI-powered smart glasses system designed to assist blind and myopic individuals in daily navigation and reading tasks.">
+  <title>readlens — AI-Powered Smart Glasses for the Visually Impaired</title>
+  <meta name="description" content="readlens is an affordable AI-powered smart glasses system designed to assist blind and myopic individuals in daily navigation and reading tasks.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="readlens — See Beyond. Explore Safely.">
+  <meta property="og:description" content="Affordable, AI-powered smart glasses for blind and myopic individuals.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://readlens.my/logoandtexttransparent.png">
+  <meta property="og:url" content="https://readlens.my">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="readlens — AI Smart Glasses">
+  <meta name="twitter:description" content="Affordable AI-powered smart glasses for the visually impaired.">
+  <meta name="twitter:image" content="https://readlens.my/logoandtexttransparent.png">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-</head>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
 
+  <!-- Styles -->
+  <link rel="stylesheet" href="src/css/styles.css">
+
+  <!-- Theme -->
+  <meta name="theme-color" content="#10b981">
+</head>
 <body>
 
-  <div id="canvas-container"></div>
+  <div id="canvas-container" aria-hidden="true"></div>
 
-  <nav>
-    <a href="index.html" class="logo">
-      <img src="blacklogoandtext.png" alt="readlens">
-    </a>
-    <div class="hamburger" onclick="toggleMenu()">
-      <span></span><span></span><span></span>
-    </div>
-    <div class="nav-links">
-      <div class="nav-item">
-        <a href="index.html" class="active">Home</a>
-        <div class="nav-dropdown">
-          <a href="index.html#welcome">Welcome</a>
-          <a href="index.html#stats">By The Numbers</a>
-          <a href="index.html#features">Key Features</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="pageourteam/index.html">Our Team</a>
-      </div>
-      <div class="nav-item">
-        <a href="pageproblemidentification/index.html">Problem Identification</a>
-        <div class="nav-dropdown">
-          <a href="pageproblemidentification/index.html#challenge">The Challenge</a>
-          <a href="pageproblemidentification/index.html#target-users">Target Users</a>
-          <a href="pageproblemidentification/index.html#project-goal">Project Goal</a>
-          <a href="pageproblemidentification/index.html#global-impact">Global Impact</a>
-          <a href="pageproblemidentification/index.html#benchmarking">Benchmarking</a>
-          <a href="pageproblemidentification/index.html#research">Research</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="pageengineeringdesign/index.html">Engineering Design</a>
-        <div class="nav-dropdown">
-          <a href="pageengineeringdesign/index.html#bill-of-process">Bill of Process</a>
-          <a href="pageengineeringdesign/index.html#system-flowchart">System Flowchart</a>
-          <a href="pageengineeringdesign/index.html#design-sketch">Design Sketch</a>
-          <a href="pageengineeringdesign/index.html#circuit-diagram">Circuit Diagram</a>
-          <a href="pageengineeringdesign/index.html#test-cards">Test Cards</a>
-          <a href="pageengineeringdesign/index.html#project-timeline">Project Timeline</a>
-        </div>
-      </div>
-      <div class="nav-item">
-        <a href="pagedesignrequirement/index.html">Design Requirements</a>
-        <div class="nav-dropdown">
-          <a href="pagedesignrequirement/index.html#design-specification">Design Specification</a>
-        </div>
-      </div>
-    </div>
-  </nav>
+  <!-- Top Navigation (injected via JS) -->
+  <header class="top-nav"></header>
 
   <header id="hero">
     <div class="hero-content">
-      <img src="logobarugaishijau.png" alt="readlens logo" class="hero-logo">
-      
+      <img src="logobarugaishijau.png" alt="readlens logo" class="hero-logo" loading="eager">
       <h1 class="hero-title">See Beyond.<br>Explore Safely.</h1>
-      <p class="hero-subtitle">Affordable, AI-powered smart glasses system designed specifically to assist blind and
-        myopic patients in daily navigation and reading tasks.</p>
-      <div class="btn-container" style="pointer-events: auto; margin-top: 2.5rem;">
-        <a href="pageproblemidentification/index.html" class="btn-apple">Explore the Challenge</a>
-        <a href="pageengineeringdesign/index.html" class="btn-apple btn-apple-secondary">View Our Solution</a>
+      <p class="hero-subtitle">Affordable, <strong>AI-powered smart glasses</strong> system designed to assist blind and myopic individuals in daily navigation and reading tasks.</p>
+      <div class="hero-actions">
+        <a href="pageproblemidentification/index.html" class="btn-primary">Explore the Challenge</a>
+        <a href="pageengineeringdesign/index.html" class="btn-secondary">View Our Solution</a>
       </div>
     </div>
   </header>
 
-  <main class="page-container">
-    <!-- Welcome Section -->
+  <main id="main-content" class="doc-content doc-content--full">
+
     <section class="content-section" id="welcome">
       <h2>Welcome to readlens</h2>
-      <p>Malaysia faces a growing accessibility challenge: over 300,000 citizens live with severe visual impairment, and
-        myopia affects nearly one third of the population.</p>
-      <p><strong>readlens</strong> directly addresses this gap by providing an affordable, AI-powered smart glasses
-        system for blind and myopic users, combining real-time text recognition, object identification, and audio
-        feedback.</p>
+      <p>Malaysia faces a growing accessibility challenge: over <strong>300,000 citizens</strong> live with severe visual impairment, and myopia affects nearly <strong>one third</strong> of the population.</p>
+      <p><strong>readlens</strong> directly addresses this gap by providing an affordable, <strong>AI-powered smart glasses system</strong> for blind and myopic users, combining real-time <strong>text recognition</strong>, <strong>object identification</strong>, and <strong>audio feedback</strong>.</p>
     </section>
 
-    <!-- Impact Statistics -->
     <section class="content-section" id="stats">
       <h2>By The Numbers</h2>
       <div class="stats-row">
@@ -107,63 +69,50 @@
           <div class="stat-label">Malaysian Adolescents with Myopia</div>
         </div>
         <div class="stat">
-          <div class="stat-num">RM 10,000–15,000</div>
+          <div class="stat-num">RM 700–2.5K</div>
           <div class="stat-label">Cost of Traditional Smart Glasses</div>
         </div>
         <div class="stat">
           <div class="stat-num">RM 72.41</div>
-          <div class="stat-label">Target Cost for ReadLens</div>
+          <div class="stat-label">Target Cost for readlens</div>
         </div>
       </div>
     </section>
 
-
-
-    <!-- Key Features Section -->
     <section class="content-section" id="features">
       <h2>Key Features</h2>
-      <div class="stats-row">
-        <div class="stat">
-          <div class="stat-num">📸</div>
-          <div class="stat-label">Real-Time OCR</div>
+      <div class="card-grid card-grid--4">
+        <div class="card">
+          <div class="card__icon">&#128247;</div>
+          <div class="card__title">Real-Time OCR</div>
+          <div class="card__text">Instantly reads printed text and converts it to clear <strong>audio feedback</strong>.</div>
         </div>
-        <div class="stat">
-          <div class="stat-num">🔊</div>
-          <div class="stat-label">Audio Feedback</div>
+        <div class="card">
+          <div class="card__icon">&#128266;</div>
+          <div class="card__title">Audio Feedback</div>
+          <div class="card__text">Crystal-clear voice alerts for <strong>obstacle detection</strong> and navigation guidance.</div>
         </div>
-        <div class="stat">
-          <div class="stat-num">🎯</div>
-          <div class="stat-label">Object Detection</div>
+        <div class="card">
+          <div class="card__icon">&#127919;</div>
+          <div class="card__title">Object Detection</div>
+          <div class="card__text"><strong>AI-powered</strong> recognition of everyday objects, signs, and obstacles in real time.</div>
         </div>
-        <div class="stat">
-          <div class="stat-num">⚡</div>
-          <div class="stat-label">Low Latency</div>
+        <div class="card">
+          <div class="card__icon">&#9889;</div>
+          <div class="card__title">Low Latency</div>
+          <div class="card__text"><strong>Sub-300ms</strong> response time ensures smooth, uninterrupted user experience.</div>
         </div>
       </div>
     </section>
 
   </main>
 
-  <footer>
-    <p>&copy; 2026 <span>readlens</span> Project. All rights reserved.</p>
-  </footer>
+  <!-- Footer (injected via JS) -->
+  <footer></footer>
 
-  <!-- Three.js Library -->
+  <!-- Scripts -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
   <script src="three-header.js"></script>
-  <script>
-    function toggleMenu() {
-      const navLinks = document.querySelector('.nav-links');
-      navLinks.classList.toggle('active');
-    }
-
-    // Close menu when a link is clicked
-    document.querySelectorAll('.nav-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        document.querySelector('.nav-links').classList.remove('active');
-      });
-    });
-  </script>
+  <script type="module" src="src/js/main.js"></script>
 </body>
-
 </html>

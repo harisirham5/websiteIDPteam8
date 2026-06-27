@@ -118,20 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
     shards.push(mesh);
   }
 
-  // Mouse interactivity
-  let mouseX = 0;
-  let mouseY = 0;
-  let targetX = 0;
-  let targetY = 0;
-
-  const windowHalfX = window.innerWidth / 2;
-  const windowHalfY = window.innerHeight / 2;
-
-  document.addEventListener('mousemove', (event) => {
-    mouseX = (event.clientX - windowHalfX);
-    mouseY = (event.clientY - windowHalfY);
-  });
-
   // Animation Loop
   const clock = new THREE.Clock();
 
@@ -139,12 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
     requestAnimationFrame(animate);
     const time = clock.getElapsedTime();
 
-    targetX = mouseX * 0.001;
-    targetY = mouseY * 0.001;
-
-    // Smooth camera movement
-    camera.rotation.y += 0.05 * (targetX - camera.rotation.y);
-    camera.rotation.x += 0.05 * (targetY - camera.rotation.x);
+    // Gentle auto-rotation (no mouse tracking)
+    camera.rotation.y = Math.sin(time * 0.08) * 0.15;
+    camera.rotation.x = Math.cos(time * 0.06) * 0.08;
 
     // Animate Blobs (Drifting upwards + Wobbling)
     blobs.forEach((blob) => {
